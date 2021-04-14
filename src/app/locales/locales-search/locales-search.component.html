@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card">
+    <div>   </div>
+    <div class="card-header" style="font-size:18.0pt">Sectors :   <span style="font-weight: bold"> {{sectorClicked}}</span></div>
+    <div class="card body">
+      <table class="table table-hover table-striped">
+        <thead>
+        <th>Code </th>
+        <th>Libellé </th>
+        <th>Action </th>
+        <th> - </th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let s of secteurList; index as i" >
+          <td>{{s.code}}</td>
+          <td>{{s.libelle}}</td>
+          <td><button type="button" class="button" (click)="searchLocales(s)">Locales</button></td>
+          <td><div class="circle-btn"><button type="button" class=" fa fa-trash btn btn-danger" (click)="deleteSector(i, s)"></button></div></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+      <p></p>
+      <div class="card-header"  style="font-size:18.0pt">List of locales</div>
+      <div class="card body">
+        <table class="table table-hover table-striped">
+          <thead>
+          <th>Reference </th>
+          <th>Secteur </th>
+          <th>Redevable </th>
+          <th>Catégorie </th>
+          <th>Action </th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of localesList; index as i" >
+            <td>{{l.ref}}</td>
+            <td>{{l.secteur.code}}</td>
+            <td>{{l.redevable.ref}}</td>
+            <td>{{l.categorielocale.ref}}</td>
+            <td><button type="button" class=" fa fa-trash btn btn-warning" (click)="deleteLocale(i, l)"></button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+

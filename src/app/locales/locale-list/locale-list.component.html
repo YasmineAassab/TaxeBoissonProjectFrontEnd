@@ -1,0 +1,27 @@
+<p> </p>
+<div class="card">
+  <div class="card-header" style="background-color: lightblue">Liste des locaux: </div>
+  <div class="card body">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>Reference: </th>
+        <th>Secteur: </th>
+        <th>Redevable: </th>
+        <th>Catégorie: </th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let l of localesList; index as i" >
+        <td>{{l.ref}}</td>
+        <td>{{l.secteur.code}}</td>
+        <td>{{l.redevable.ref}}</td>
+        <td>{{l.categorielocale.ref}}</td>
+        <!--<td><span (click)="delete(i, l)"><i class=" fa fa-trash btn btn-danger"></i></span></td>-->
+        <td><div class="circle-btn"><button type="button" class=" fa fa-trash btn btn-danger" (click)="delete(i, l)"></button></div></td>
+        <td><div class="circle-btn"><button type="button" class=" fa fa-trash btn btn-warning" (click)="update(i, l)"></button></div></td>
+        <!--<td><span (click)="update(i, l)"><i class=" fa fa-edit btn btn-warning"></i></span></td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

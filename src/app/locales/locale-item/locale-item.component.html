@@ -1,0 +1,82 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card">
+      <div class="card-header"  style="font-size:18.0pt">Sector :</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6"><label>Code :</label>
+            <input type="text" class="form-control" [(ngModel)]="secteur.code">
+          </div>
+          <div class="col-md-6"><label>Libellé :</label>
+            <input type="text" class="form-control" [(ngModel)]="secteur.libelle">
+          </div>
+          <div class="col-md-6"><label>Ville :</label>
+            <!-- ------ -->
+            <select class="form-control" [(ngModel)]="secteur.ville.libelle">
+              <!--<option selected>Ville </option>-->
+              <option  *ngFor="let v of villeList" [value]="v.libelle">{{v.libelle}}</option>
+            </select>
+            <!-- ------ -->
+          </div>
+        </div>
+      </div>
+
+      <div class="card-header"  style="font-size:18.0pt">Locale :</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6"><label>Reference :</label>
+            <input type="text" class="form-control" [(ngModel)]="locale.ref">
+          </div>
+          <div class="col-md-6"><label>Adresse :</label>
+            <input type="text" class="form-control" [(ngModel)]="locale.adresse">
+          </div>
+          <div class="col-md-6"><label>Rue :</label>
+          <input type="text" class="form-control" [(ngModel)]="locale.rue">
+          </div>
+          <div class="col-md-6"><label>Surface :</label>
+            <input type="number" class="form-control" [(ngModel)]="locale.surface">
+          </div>
+          <div class="col-md-6"><label>Redevable :</label>
+            <input type="text" class="form-control" [(ngModel)]="locale.redevable.ref">
+          </div>
+          <div class="col-md-6"><label>Catégorie :</label>
+            <!-- ------ -->
+            <select class="form-control" [(ngModel)]="locale.categorielocale.ref">
+              <!--<option selected>Ville </option>-->
+              <option  *ngFor="let c of categorieList" [value]="c.ref">{{c.ref}}</option>
+            </select>
+            <!-- ------ -->
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-outline-primary btn-lg btn-block fa fa-plus" [disabled]="!validateAdd()" (click)="add()"></button>
+      </div>
+      <p></p>
+      <div class="card-header" style="font-size:18.0pt">List of locales</div>
+      <div class="card-body">
+        <table class="table table-hover table-striped">
+          <thead>
+          <th>Reference </th>
+          <th>Redevable </th>
+          <th>Catégorie </th>
+          <th>  </th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let loc of secteur.listeLocale; index as i">
+            <td>{{loc.ref}}</td>
+            <td>{{loc.redevable.ref}}</td>
+            <td>{{loc.categorielocale.ref}}</td>
+            <td>
+              <button (click)="deleteItem(i)" class=" fa fa-trash btn btn-dark"></button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-success btn-block" [disabled]="!validateSave()" (click)="save()">SAVE</button>
+      </div>
+  </div>
+</div>

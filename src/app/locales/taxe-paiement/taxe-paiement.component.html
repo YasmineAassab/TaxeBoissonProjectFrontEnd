@@ -1,0 +1,86 @@
+<div class="container col-md-6">
+<div class="card">
+  <p></p>
+  <div class="card-header" style="font-size:18.0pt">PAIEMENT</div>
+  <div id="taxe" class="card-body">
+      <div class="form-group">
+        <div class="input-group">
+          <!-- ------ -->
+         <div class="input-group mb-3">
+            <label>Redevable :</label>
+            <input type="text" class="form-control" placeholder="Reference" aria-label="Reference" aria-describedby="button-addon2" [(ngModel)]="redevable.ref">
+            <button class="btn btn-outline-secondary" type="button" (click)="findLocales()">OK</button>
+          </div>
+          <!-- ------ -->
+          <!-- <input type="text" class="form-control" [(ngModel)]="redevable.ref"> -->
+         <!-- <div class="input-group-prepend">
+            <button class="btn btn-outline-dark" (click)="findLocales()">OK</button>
+          </div>-->
+        </div>
+      </div>
+        <div class="card-body">
+          <table class="table">
+            <thead class="thead-dark">
+            <tr>Locales
+              <th scope="col">Reference</th>
+              <th scope="col">Secteur</th>
+              <th scope="col">Catégorie</th>
+              <th scope="col">Choix</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let l of listeLocale">
+              <th scope="row"></th>
+              <td>{{l.ref}}</td>
+              <td>{{l.secteur.code}}</td>
+              <td>{{l.categorielocale.ref}}</td>
+              <td>
+                <span>
+                  <button class="btn btn-outline-dark btn-block" (click)="findTaux(l)">Choisir</button>
+                </span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      <!-- ------- -->
+    <div><p style="font-size:13.7pt">Local sélectionné : <span style="font-weight: bold">{{localeClicked}}</span></p></div>
+      <div class="row">
+      <div class="col-md-6">
+        <label>Taux : </label>
+        <input type="number" disabled class="form-control" placeholder="Taux" [value]="tauTaxeBoisson.pourcentage">
+      </div>
+      <div class="col-md-6">
+        <label>Chiffre d'affaires : </label>
+        <input type="number" class="form-control" placeholder="Chiffre d'affaires" [(ngModel)]="taxeBoisson.chiffreAffaire">
+      </div>
+      <div class="col-md-6">
+        <label>Année : </label>
+        <input type="number" class="form-control" placeholder="Année" [(ngModel)]="taxeBoisson.annee">
+      </div>
+      <div class="col-md-6">
+        <label>Trim : </label>
+        <input type="number" class="form-control" placeholder="Trim" [(ngModel)]="taxeBoisson.trim">
+      </div>
+      <div class="col-md-6"> <!-- input-group-->
+        <label>Montant Base : </label>
+        <!-- ------ -->
+        <div class="input-group mb-3">
+          <input type="number" disabled class="form-control" placeholder="Montant base" aria-label="Montant base" aria-describedby="button-addon2" [(ngModel)]="taxeBoisson.montantBase">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="calculMontant()">OK</button>
+        </div>
+        <!-- ------ -->
+        <!--<input type="text" disabled class="form-control" [(ngModel)]="taxeBoisson.montantBase">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-dark" (click)="calculMontant()">OK</button>
+        </div>-->
+      </div>
+      </div>
+  </div>
+  <div class="card-footer">
+    <button class="fa fa-download btn btn-outline-dark btn-block" (click)="download()"></button>
+    <button class="btn btn-outline-dark btn-block" (click)="save()">SAVE</button>
+  </div>
+  <p></p>
+</div>
+</div>

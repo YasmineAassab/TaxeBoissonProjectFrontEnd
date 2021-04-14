@@ -1,0 +1,25 @@
+.card-header{
+  background-color: lightblue;
+}
+.card{
+  position: center;
+}
+#html{
+  display: none;
+  width: 595px;
+  height: 842px;
+}
+
+#taxe{
+  overflow: visible;
+}
+
+#mama{
+  max-width: 2480px;
+  width: 100%;
+}
+#mama td{
+  width: auto;
+  overflow: hidden;
+  word-wrap: break-word;
+}

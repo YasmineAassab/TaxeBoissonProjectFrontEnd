@@ -1,0 +1,47 @@
+<p>  </p>
+<div class="card">
+  <div class="card-header" style="background-color: lightblue">Gestion Locale</div>
+
+  <div class="card-body">
+
+    <div class="form-group">
+      <label>Reference: </label>
+      <input type="text" class="form-control" [(ngModel)]="locale.ref">
+    </div>
+
+    <div class="form-group">
+      <label>Adresse: </label>
+      <input type="text" class="form-control" [(ngModel)]="locale.adresse">
+    </div>
+
+    <div class="form-group">
+      <label>Rue: </label>
+      <input type="text" class="form-control" [(ngModel)]="locale.rue">
+    </div>
+
+    <div class="form-group">
+      <label>Surface: </label>
+      <input type="number" class="form-control" [(ngModel)]="locale.surface">
+    </div>
+
+    <div class="form-group">
+      <label>Secteur: </label>
+      <input type="text" class="form-control" [(ngModel)]="locale.secteur.code">
+    </div>
+
+    <div class="form-group">
+      <label>Redevable: </label>
+      <input type="text" class="form-control" [(ngModel)]="locale.redevable.ref">
+    </div>
+
+    <div class="form-group">
+      <label>Categorie : </label>
+      <input type="text" class="form-control" [(ngModel)]="locale.categorielocale.ref">
+    </div>
+
+  </div>
+
+  <div class="card-footer">
+    <button class="btn btn-outline-dark btn-block" (click)="save()">Save</button>
+  </div>
+</div>

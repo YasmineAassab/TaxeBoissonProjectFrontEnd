@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="card">
+    <p></p>
+    <div class="card">
+    <div class="card-header" style="font-size:18.0pt">Locale Criteria </div>
+    <div class="card-body">
+      <div class="card-header" style="font-size:16.0pt">Search locale :</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4"><label>Reference :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.ref">
+          </div>
+          <div class="col-md-4"><label>Adresse :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.adresse">
+          </div>
+          <div class="col-md-4"><label>Rue :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.rue">
+          </div>
+          <div class="col-md-4"><label>Surface :</label>
+            <input type="number" class="form-control" [(ngModel)]="localeVo.surface">
+          </div>
+          <div class="col-md-4"><label>Surface minimum :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.surfaceMin">
+          </div>
+          <div class="col-md-4"><label>Surface maximum :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.surfaceMax">
+          </div>
+          <div class="col-md-4"><label>Secteur :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.secteur">
+          </div>
+          <div class="col-md-4"><label>Redevable :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.redevable">
+          </div>
+          <div class="col-md-4"><label>Catégorie :</label>
+            <input type="text" class="form-control" [(ngModel)]="localeVo.categorie">
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-outline-primary btn-lg btn-block fa fa-search" (click)="searchCriteria(localeVo)"></button>
+      </div>
+    </div>
+    </div>
+    <!-- ----- -->
+    <div class="card-header" style="font-size:16.0pt">Result </div>
+    <div class="card-body">
+    <div class="row">
+      <div class="col-lg">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="font-size:14.0pt">Locale</h5>
+            <table class="table table-hover table-striped">
+              <thead>
+              <th>Reference</th>
+              <th>Adresse</th>
+              <th>Rue</th>
+              <th>Surface</th>
+              <th>Secteur</th>
+              <th>Redevable</th>
+              <th>Catégorie</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let lf of listeLocaleFound">
+                  <td>{{lf.ref}}</td>
+                  <td>{{lf.adresse}}</td>
+                  <td>{{lf.rue}}</td>
+                  <td>{{lf.surface}}</td>
+                  <td>{{lf.secteur.code}}</td>
+                  <td>{{lf.redevable.ref}}</td>
+                  <td>{{lf.categorielocale.ref}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- ----- -->
+      <!--<div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Taxe</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>-->
+      <!-- ----- -->
+
+    </div>
+    <!-- ----- -->
+    <p></p>
+  </div>
+  </div>
+</div>

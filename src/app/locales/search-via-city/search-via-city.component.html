@@ -1,0 +1,78 @@
+<div class="container col-md-12">
+  <p></p>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="card">
+        <div>   </div>
+        <div class="card-header" style="font-size:18.0pt">Ville:  <span style="font-weight: bold">{{villeClicked}}</span></div>
+        <div class="card body">
+          <table class="table table-hover table-striped">
+            <thead>
+            <th>Libellé </th>
+            <th>Secteurs </th>
+            <th> </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let v of listeVille">
+              <td>{{v.libelle}}</td>
+              <td><div class="circle-btn"><button type="button" class="fa fa-eye btn btn-black" (click)="findSecteur(v)"></button></div></td>
+              <td><div class="circle-btn"><button type="button" class=" fa fa-trash btn btn-danger"></button></div></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div>   </div>
+        <div class="card-header" style="font-size:18.0pt">Sector: <span style="font-weight: bold">{{secteurClicked}}</span></div>
+        <div class="card body">
+          <table class="table table-hover table-striped">
+            <thead>
+            <th>Code </th>
+            <th>Libellé </th>
+            <th>Locaux </th>
+            <th> </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let s of listeSecteur; index as i">
+              <td>{{s.code}}</td>
+              <td>{{s.libelle}}</td>
+              <td><div class="circle-btn"><button type="button" class="fa fa-eye btn btn-black" (click)="findLocale(s)"></button></div><td>
+              <td><div class="circle-btn"><button type="button" class=" fa fa-trash btn btn-danger" (click)="deleteSector(i,s)"></button></div></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div>   </div>
+        <div class="card-header" style="font-size:18.0pt">Locaux: </div>
+        <div class="card body">
+          <table class="table table-hover table-striped">
+            <thead>
+            <th>Reference </th>
+            <th>Redevable </th>
+            <th>Catégorie </th>
+            <th>Action </th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let l of listeLocale; index as i">
+              <td>{{l.ref}}</td>
+              <td>{{l.redevable.ref}}</td>
+              <td>{{l.categorielocale.ref}}</td>
+              <td><div class="circle-btn"><button type="button" class=" fa fa-trash btn btn-danger" (click)="deleteLocale(i, l)"></button></div></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <p> </p>
+</div>
